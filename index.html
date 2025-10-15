@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For My Love</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <!-- Background Music -->
+    <audio autoplay loop>
+        <source src="jaan-ban-gaye.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Main Container -->
+    <div class="container">
+        <h1>Will You Be Mine Forever? 💍</h1>
+        <p>From the moment I met you, my world turned magical. This site is just a tiny sparkle of the love I feel for you.</p>
+
+        <!-- Countdown -->
+        <div id="countdown"></div>
+
+        <!-- Surprise Button -->
+        <button onclick="showSurprise()">Click for a Surprise ✨</button>
+        <div id="surprise" style="display:none;">
+            <h2>I Love You More Than Words Can Say 💖</h2>
+            <p>Let’s write our story together, one magical chapter at a time.</p>
+        </div>
+    </div>
+
+    <!-- Floating Hearts -->
+    <div class="heart" style="left:10%;"></div>
+    <div class="heart" style="left:30%;"></div>
+    <div class="heart" style="left:50%;"></div>
+    <div class="heart" style="left:70%;"></div>
+    <div class="heart" style="left:90%;"></div>
+
+    <!-- Scripts -->
+    <script>
+        function showSurprise() {
+            document.getElementById("surprise").style.display = "block";
+        }
+
+        const countDownDate = new Date("Oct 20, 2025 18:00:00").getTime();
+        const x = setInterval(function () {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            document.getElementById("countdown").innerHTML =
+                "Countdown to our moment: " + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "It's time 💍";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
